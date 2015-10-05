@@ -1,0 +1,44 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        
+        <!-- Support for the following marketing assets has been implemented -->
+        <param name="plugin-icon">images/information_48x48.png</param>
+        <param name="plugin-logo">images/information_48x48.png</param>
+        
+        <!-- Support for the following marketing assets will be implemented soon -->
+        <!--param name="plugin-banner">images/pluginBanner.gif</param-->
+        <!--<param name="vendor-icon">images/Sofico_RGB_WEBGUI_16x16.png</param>
+        <param name="vendor-logo">images/Sofico_RGB_WEBGUI_72x72.png</param>-->
+        
+    </plugin-info>
+    
+    <resource type="i18n" name="be.sofico.bamboo.plugins language" location="english"/>
+
+    <notificationRecipient key="recipient.rocketchat" name="RocketChat channel recipient" class="fr.ca.bamboo.plugins.RocketChatNotificationRecipient" weight="10">
+        <description>RocketChat</description>
+        <resource type="freemarker" name="edit" location="editRocketChatNotification.ftl"/>
+    </notificationRecipient>
+    
+    <xwork key="rocketChat.instancecfg" name="RocketChat configuration">
+      <package name="configureRocketChatServer" extends="admin">
+        <action name="viewConfigureSameTimeServer" class="fr.ca.bamboo.plugins.RocketChatGlobalConfiguration" method="input">
+          <result name="input" type="freemarker">configureRocketChatServer.ftl</result>
+        </action>
+        <action name="updateConfigureRocketChatServer" class="fr.ca.bamboo.plugins.RocketChatGlobalConfiguration" method="execute">
+          <result name="input" type="freemarker">configureRocketChatServer.ftl</result>
+          <result name="error" type="freemarker">configureRocketChatServer.ftl</result>
+          <result name="success" type="freemarker">configureRocketChatServer.ftl</result>
+        </action>
+      </package>
+    </xwork>
+
+    <web-item key="rocketChat.systemcfg" name="Configure RocketChat Server" section="system.admin/communication">
+      <label key="RocketChat Server"/>
+      <link linkId="configureSameTimeServer">/viewConfigureSameTimeServer.action</link>
+    </web-item>
+    
+</atlassian-plugin>

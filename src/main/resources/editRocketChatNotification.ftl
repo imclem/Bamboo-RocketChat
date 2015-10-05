@@ -1,0 +1,5 @@
+[#if rcchannel?has_content]
+	[@ww.textfield labelKey="rc.channel" name="rc.channel" value='${rcchannel}' required='false' descriptionKey='rc.channel.description' /]
+[#else]
+	[@ww.textfield labelKey="rc.channel" name="rc.channel" required='false' descriptionKey='rc.channel.description' /]
+[/#if]
