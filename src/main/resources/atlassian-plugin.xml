@@ -16,7 +16,7 @@
         
     </plugin-info>
     
-    <resource type="i18n" name="be.sofico.bamboo.plugins language" location="english"/>
+    <resource type="i18n" name="fr.ca.bamboo.plugins language" location="english"/>
 
     <notificationRecipient key="recipient.rocketchat" name="RocketChat channel recipient" class="fr.ca.bamboo.plugins.RocketChatNotificationRecipient" weight="10">
         <description>RocketChat</description>

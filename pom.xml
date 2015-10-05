@@ -93,7 +93,7 @@
                     <productDataVersion>${bamboo.data.version}</productDataVersion>
                     <allowGoogleTracking>false</allowGoogleTracking>
                     <instructions>
-                     	<Export-Package>be.sofico.bamboo.plugins;version="${project.version}"</Export-Package>
+                     	<Export-Package>fr.ca.bamboo.plugins;version="${project.version}"</Export-Package>
 				  	</instructions>
                 </configuration>
             </plugin>
