@@ -7,11 +7,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.ca.bamboo.plugins</groupId>
     <artifactId>bamboo-rocketchat-plugin</artifactId>
-    <version>1.1</version>
+    <version>1.0</version>
 
     <organization>
         <name>Clement Agarini</name>
-        <url>https://github.com/imclem</url>
+        <url>https://github.com/imclem/Bamboo-RocketChat</url>
     </organization>
 
     <name>RocketChat Notification Plugin</name>
