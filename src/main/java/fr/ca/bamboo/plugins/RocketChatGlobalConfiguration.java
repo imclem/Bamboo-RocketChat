@@ -47,19 +47,18 @@ public class RocketChatGlobalConfiguration extends BambooActionSupport {
 	
 	/**
 	 * Validate values
-	 * (doesnt seem to get called?)
 	 */
 	@Override
 	public void validate() {
 		
 		if(StringUtils.isEmpty(this.rcPassword)) {
-			addFieldError(rcPassword, "Please (re)enter the password.");
+			addFieldError("rcPassword", "Please (re)enter the password.");
 		}
 		if(StringUtils.isEmpty(this.rcUser)) {
-			addFieldError(rcUser, "Please enter the RocketChat user.");
+			addFieldError("rcUser", "Please enter the RocketChat user.");
 		}
 		if(StringUtils.isEmpty(this.rcServer)) {
-			addFieldError(rcServer, "Please enter the RocketChat server.");
+			addFieldError("rcServer", "Please enter the RocketChat server.");
 		}
 	}
 
