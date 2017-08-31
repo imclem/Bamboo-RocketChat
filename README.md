@@ -21,6 +21,11 @@ At this time, you can't use LDAP accounts and must use RocketChat local accounts
 - Bamboo v6.0.0
 - It might work with other versions and I'll really appreciate that you tell me if it works with your version
 
+# Development
+1. Download and install the Atlassian Plugin SDK.
+2. Run **atlas-package** from the project root.
+3. Grab your jar file that has just been generated in the newly created **target** directory.
+
 # Thanks
 I would like to specially thanks guys from [Sofico](http://www.sofico.be) for sharing their code with the world. Original code can be found here [BitBucket](https://bitbucket.org/sofico/bamboo-sametime-plugin).
 
