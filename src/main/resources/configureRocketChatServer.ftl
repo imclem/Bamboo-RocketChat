@@ -14,8 +14,8 @@
         titleKey='RocketChat Server'
         description='Send IM notifications using RocketChat.']
         
-        [@ww.textfield name='rcServer' labelKey="rc.server.global" required='true' value =rcServer descriptionKey='rc.server.global.description' /]
-        [@ww.textfield name='rcUser' labelKey="rc.user.global" required='true' value =rcUser descriptionKey='rc.user.description' /]
+        [@ww.textfield name='rcServer' labelKey="rc.server.global" required='true' value=rcServer descriptionKey='rc.server.global.description' /]
+        [@ww.textfield name='rcUser' labelKey="rc.user.global" required='true' value=rcUser descriptionKey='rc.user.description' /]
         [@ww.password name='rcPassword' labelKey="rc.password.global" required='true' value=rcPassword showPassword="true" descriptionKey='rc.password.description' /]
         
         [@ui.clear /]
