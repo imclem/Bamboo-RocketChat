@@ -9,7 +9,7 @@ Just a reminder of the License, this is provided "WITHOUT WARRANTIES OR CONDITIO
 
 # Configure
 1. Go to your **RocketChat Server** tab in Bamboo administration
-2. Fill all the fields, be careful the Server url should end with **/api**
+2. Fill all the fields, be careful the Server url should end with **/api/v1**
 
 # Use it
 You can now use it from the **Notifications** tab in your plan configuration.
@@ -18,7 +18,7 @@ You can now use it from the **Notifications** tab in your plan configuration.
 At this time, you can't use LDAP accounts and must use RocketChat local accounts.
 
 # Working Versions
-- 5.7.1 (It has only been tested with that version because it's the one we use in production
+- Bamboo v6.0.0
 - It might work with other versions and I'll really appreciate that you tell me if it works with your version
 
 # Thanks
