@@ -9,7 +9,7 @@ Just a reminder of the License, this is provided "WITHOUT WARRANTIES OR CONDITIO
 
 # Configure
 1. Go to your **RocketChat Server** tab in Bamboo administration
-2. Fill all the fields, be careful the Server url should end with **/api**
+2. Fill all the fields, be careful the Server url should end with **/api/v1**
 
 # Use it
 You can now use it from the **Notifications** tab in your plan configuration.
@@ -18,8 +18,13 @@ You can now use it from the **Notifications** tab in your plan configuration.
 At this time, you can't use LDAP accounts and must use RocketChat local accounts.
 
 # Working Versions
-- 5.7.1 (It has only been tested with that version because it's the one we use in production
+- Bamboo v6.0.0
 - It might work with other versions and I'll really appreciate that you tell me if it works with your version
+
+# Development
+1. Download and install the Atlassian Plugin SDK.
+2. Run **atlas-package** from the project root.
+3. Grab your jar file that has just been generated in the newly created **target** directory.
 
 # Thanks
 I would like to specially thanks guys from [Sofico](http://www.sofico.be) for sharing their code with the world. Original code can be found here [BitBucket](https://bitbucket.org/sofico/bamboo-sametime-plugin).
