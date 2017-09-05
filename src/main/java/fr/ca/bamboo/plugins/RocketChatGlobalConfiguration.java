@@ -27,7 +27,7 @@ public class RocketChatGlobalConfiguration extends BambooActionSupport {
 	private BandanaManager bandanaManager = null;
 
 	@Override
-	public String doInput() throws Exception {
+	public String input() throws Exception {
 		
 		return INPUT;
 	}
@@ -36,7 +36,7 @@ public class RocketChatGlobalConfiguration extends BambooActionSupport {
 	 * Set values in bandana
 	 */
 	@Override
-	public String doExecute() throws Exception {
+	public String execute() throws Exception {
 		
 		bandanaManager.setValue(PlanAwareBandanaContext.GLOBAL_CONTEXT, PROP_RC_SERVER, this.rcServer);
 		bandanaManager.setValue(PlanAwareBandanaContext.GLOBAL_CONTEXT, PROP_RC_USER, this.rcUser);
@@ -47,19 +47,18 @@ public class RocketChatGlobalConfiguration extends BambooActionSupport {
 	
 	/**
 	 * Validate values
-	 * (doesnt seem to get called?)
 	 */
 	@Override
 	public void validate() {
 		
 		if(StringUtils.isEmpty(this.rcPassword)) {
-			addFieldError(rcPassword, "Please (re)enter the password.");
+			addFieldError("rcPassword", "Please (re)enter the password.");
 		}
 		if(StringUtils.isEmpty(this.rcUser)) {
-			addFieldError(rcUser, "Please enter the RocketChat user.");
+			addFieldError("rcUser", "Please enter the RocketChat user.");
 		}
 		if(StringUtils.isEmpty(this.rcServer)) {
-			addFieldError(rcServer, "Please enter the RocketChat server.");
+			addFieldError("rcServer", "Please enter the RocketChat server.");
 		}
 	}
 

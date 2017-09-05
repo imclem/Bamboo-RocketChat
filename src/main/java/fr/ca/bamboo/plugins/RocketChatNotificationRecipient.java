@@ -133,17 +133,17 @@ public class RocketChatNotificationRecipient extends AbstractNotificationRecipie
 	public String getEditHtml() {
 		
 		// Get our template
-        String editTemplateLocation = ((NotificationRecipientModuleDescriptor)getModuleDescriptor()).getEditTemplate();
-        
-        // Inject settings into the template context
-        Map<String, Object> context = new HashMap<String, Object>();
+		String editTemplateLocation = ((NotificationRecipientModuleDescriptor)getModuleDescriptor()).getEditTemplate();
+		
+		// Inject settings into the template context
+		Map<String, Object> context = new HashMap<String, Object>();
 
-        // User
-        if (this.rcChannel != null)
-            context.put(VAL_RC_CHANNEL, this.rcChannel);
-        
-        // Render html
-        return templateRenderer.render(editTemplateLocation, context);
+		// User
+		if (this.rcChannel != null)
+				context.put(VAL_RC_CHANNEL, this.rcChannel);
+		
+		// Render html
+		return templateRenderer.render(editTemplateLocation, context);
 	}
 	
 	/**

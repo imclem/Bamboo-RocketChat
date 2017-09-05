@@ -23,7 +23,6 @@ import java.util.logging.Logger;
 public class RocketChatConnection {
 
     private static final Logger log = Logger.getLogger(RocketChatConnection.class.getName());
-    private static Map<String, String> roomsById = new HashMap<String, String>();
 
     private String server;
     private String user;
@@ -43,10 +42,8 @@ public class RocketChatConnection {
         this.password = pass;
 
         configure();
-        // Login
         login();
     }
-
 
     /**
      * Configures jersey client
@@ -72,54 +69,29 @@ public class RocketChatConnection {
             this.userId = data.getString("userId");
             this.authToken = data.getString("authToken");
         }
-        else{
-            throw new RuntimeException("Failed to fetch public rooms with error: " + responseObject.getString("message"));
-        }
-        fetchPublicRooms();
-    }
-
-    private void fetchPublicRooms() {
-        WebResource resource = restapi.path("publicRooms");
-
-        ClientResponse response = addTokens(resource).get(ClientResponse.class);
-
-        JSONObject responseObject = JSONObject.fromObject(response.getEntity(String.class));
-
-        if (responseObject.getString("status").equals("success")) {
-            JSONArray rooms = responseObject.getJSONArray("rooms");
-
-            for (int i = 0; i < rooms.size(); i++) {
-                {
-                    JSONObject room = (JSONObject) rooms.get(i);
-                    roomsById.put(room.getString("name"), room.getString("_id"));
-                }
-            }
-        }
-        else{
+        else {
             throw new RuntimeException("Failed to fetch public rooms with error: " + responseObject.getString("message"));
         }
     }
 
     public void sendMessage(String roomName, String message) {
-        // joinRoom(roomName);
-        WebResource resource = restapi.path("rooms").path(roomsById.get(roomName)).path("send");
+        WebResource resource = restapi.path("chat.postMessage");
 
         JSONObject object = new JSONObject();
-        object.put("msg", message);
+        object.put("channel", roomName);
+        object.put("text", message);
 
         ClientResponse response = addTokens(resource).header("Content-Type", "application/json").post(ClientResponse.class, object.toString());
         JSONObject responseObject = JSONObject.fromObject(response.getEntity(String.class));
 
-        if (!responseObject.getString("status").equals("success")) {
+        if (!responseObject.getString("success").equals(true)) {
             throw new RuntimeException("Failed to send the message with error: " + responseObject.getString("message"));
         }
     }
 
     public void logout() {
         WebResource resource = restapi.path("logout");
-
         ClientResponse response = addTokens(resource).get(ClientResponse.class);
-
         JSONObject responseObject = JSONObject.fromObject(response.getEntity(String.class));
 
         if (!responseObject.getString("status").equals("success")) {
@@ -128,10 +100,10 @@ public class RocketChatConnection {
     }
 
     private WebResource.Builder addTokens(WebResource original) {
-        return original.header("X-Auth-Token", authToken).header("X-User-Id", userId);
+        return original.header("X-Auth-Token", this.authToken).header("X-User-Id", this.userId);
     }
 
     public boolean isLoggedIn() {
-        return authToken != null && userId != null;
+        return this.authToken != null && this.userId != null;
     }
 }

@@ -46,22 +46,13 @@ public class RocketChatNotificationTransport implements NotificationTransport {
 
         // IM Messages to be sent
         String plainTextMessage = null;
-        String richTextMessage = null;
 
         HtmlImContentProvidingNotification imContentProvider = (HtmlImContentProvidingNotification) notification;
         plainTextMessage = imContentProvider.getIMContent();
-
-        // Make sure we have a message
-        if (StringUtils.isEmpty(richTextMessage)) {
-            richTextMessage = plainTextMessage;
-        }
-        if (StringUtils.isEmpty(plainTextMessage)) {
-            plainTextMessage = richTextMessage;
-        }
-
-        // Send when we have users to send to and a message to send
-        if (targetChannel != null && richTextMessage != null && plainTextMessage != null) {
-
+        
+        // Send when we have users to send to and a message to send 
+        if (targetChannel != null && plainTextMessage != null) { 
+            
             RocketChatConnection rcConnection = null;
 
             try {
@@ -73,8 +64,9 @@ public class RocketChatNotificationTransport implements NotificationTransport {
                     rcConnection.logout();
                 }
             }
-        } else {
-            log.log(Level.INFO, "Not sending since no targets and/or text is available to be sent.");
-        }
+
+         } else { 
+            log.log(Level.INFO, "Not sending since no targets and/or text is available to be sent."); 
+        } 
     }
 }
