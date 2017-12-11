@@ -19,6 +19,7 @@ At this time, you can't use LDAP accounts and must use RocketChat local accounts
 
 # Working Versions
 - Bamboo v6.0.0
+- Bamboo v6.1.1
 - It might work with other versions and I'll really appreciate that you tell me if it works with your version
 
 # Development
